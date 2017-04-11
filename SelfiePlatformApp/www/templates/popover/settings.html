@@ -1,0 +1,20 @@
+<ion-popover-view>
+  <ion-header-bar><h1 class="title">Impostazioni</h1></ion-header-bar>
+  <ion-content class="padding">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label"># of sec to make a selfie: </span>
+        <input class="inputSettings" type="number" min="4" max="10" ng-model="selfieSec">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Second to send photo request: </span>
+        <input class="inputSettings" type="number" min="1" max="50" ng-model="numSec">
+      </label>
+      <label class="item">
+        <button class="button button-block button-dark" ng-click="saveSettings(selfieSec,numSec)">
+          Salva
+        </button>
+      </label>
+    </div>
+  </ion-content>
+</ion-popover-view>

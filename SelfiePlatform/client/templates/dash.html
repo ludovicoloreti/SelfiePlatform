@@ -1,0 +1,105 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SelfiePlatform ACP</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/#/dash">Home</a></li>
+        <li><a ng-click="takePhoto()">Scatta foto</a></li>
+        <li><a ng-click="clientLogs()">Client Logs</a></li>
+        <li><a href="/logs/server.log" target="_blank">Server Logs</a></li>
+        <li><a ng-click="movePhotos('bitsabenba55')">Sposta foto</a></li>
+        <li><a ng-click="deletePhotos('bitsabenba55')"><s style="color:red">Cancella Foto</s></a></li>
+        <!-- <li><a ng-click="reboot('restartServer_bitsabenba55')"><b style="color:red">Riavvia Server</b></a></li> -->
+        <li><hr></li>
+        <li><a ng-click="reboot('restartRaspone_bitsabenba55')"><s style="text-transform:uppercase; color:red">Riavvia Raspberry</s></a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="container theme-showcase" role="main">
+
+  <!-- MESSAGGIO / FOTO SCATTATA (NG-IF) -->
+  <div class="jumbotron" ng-if="msg">
+    <h1>Messaggio</h1>
+    <p class="panel-body" ng-bind-html="msg"></p>
+  </div>
+
+  <div class="jumbotron" ng-if="fotog">
+    <h1>Foto appena scattata</h1>
+    <p class="panel-body"><a ng-href="{{fotog}}" target="_blank" style="text-decoration:none;"><img ng-src="{{fotog}}" style="width:70vw;height:auto"></a></p>
+  </div>
+
+  <!-- FINE ->>>> MESSAGGIO / FOTO SCATTATA (NG-IF) -->
+
+  <!-- FOTOOOOO -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">FOTO SALVATE</h1>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb" ng-repeat="photo in photos">
+      <a class="thumbnail" ng-click="apriModal(photo)">
+        <img class="img-responsive" ng-src="{{photo}}" alt="Foto SelfiePlatform">
+      </a>
+    </div>
+
+  </div>
+
+  <!-- FINE FOTOOOO -->
+
+</div>
+
+
+<!--
+<ul type="none">
+<li><a class="navlink" ng-click="takePhoto()">TAKE A SELFIE</a></li>
+<li><a class="navlink" ng-click="deletePhotos('bitsabenba55')">DELETE ALLPHOTOS</a></li>
+<li><a class="navlink" ng-click="deleteLogs('bitsabenba55')">DELETE LOGS</a></li>
+<li><a class="nav-link" href="http://raspberrypi.local:8080/server.log" target="_blank">OPEN LOGS</a></li>
+<li><b>...Attenzione...</b></li>
+<li><a class="navlink" ng-click="reboot('bitsabenba55')">REBOOT</a></li>
+</ul>
+<div class="container">
+<div class="row">
+<div class="panel panel-default" ng-if="msg">
+<div class="panel-heading">
+<h3 class="panel-title">MESSAGE</h3>
+</div>
+<div class="panel-body" ng-bind-html="msg">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="panel panel-default" ng-if="fotog">
+<div class="panel-heading">
+<h3 class="panel-title">PHOTO JUST MADE</h3>
+</div>
+<div class="panel-body">
+<img ng-src="{{fotog}}" width="80%">
+</div>
+</div>
+</div>
+<br><br>
+<div class="row" ng-repeat="photo in photos" ng-if="$index % 3 === 0">
+<div class="col-md-3" ng-if="$index < photos.length" style="padding: 5px">
+<img ng-src="{{photos[$index]}}" width="30%" ng-click="apriModal(photos[$index])">
+</div>
+<div class="col-md-3" ng-if="$index + 1 < photos.length" style="padding: 5px">
+<img ng-src="{{photos[$index + 1]}}" width="30%" ng-click="apriModal(photos[$index + 1])">
+</div>
+<div class="col-md-3" ng-if="$index + 2 < photos.length" style="padding: 5px">
+<img ng-src="{{photos[$index + 2]}}" width="50%" ng-click="apriModal(photos[$index + 2])">
+</div>
+</div>
+</div> -->

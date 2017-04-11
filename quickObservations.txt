@@ -1,0 +1,8 @@
+SelfiePlatform = Server
+SelfiePlatformApp = Client 
+
+Server made with a sort of MEAN (angularJs,NodeJs,MongoDB).
+Client made with Ionic Framework.
+
+Server tested with a Raspberry PI 2 or above.
+App tested with a iPad mini 2 (iOS 10)

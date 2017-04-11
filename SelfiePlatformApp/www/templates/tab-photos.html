@@ -1,0 +1,27 @@
+<ion-view view-title="Guarda tutte le foto">
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" ng-click="doRefresh()" class="button button-icon icon ion-ios-refresh-outline"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <ion-refresher pulling-text="Trascina in giu per aggiornare" on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="item row" ng-repeat="photo in photos" ng-if="$index % 2 === 0">
+      <div class="col col-50" ng-if="$index < photos.length">
+        <img ng-src="{{photos[$index]}}" width="100%" ng-click="apriModal('{{photos[$index]}}')">
+      </div>
+      <div class="col col-50" ng-if="$index + 1 < photos.length">
+        <img ng-src="{{photos[$index + 1]}}" width="100%" ng-click="apriModal('{{photos[$index + 1]}}')">
+      </div>
+    </div>
+    <div class="card" ng-show="photos.length == 0">
+      <div class="item item-divider">
+        Ehm..
+      </div>
+      <div class="item item-body">
+        Siamo spiacenti, ma non ci sono ancora delle foto da mostrare!<br>
+        Prova a farne una tu!<br>
+        Ciao!!!
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

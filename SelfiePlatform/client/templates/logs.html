@@ -1,0 +1,35 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><b>&crarr;</b> SelfiePlatform ACP</a>
+    </div>
+  </div>
+</nav>
+<div class="container theme-showcase" role="main">
+  <div class="table-responsive">
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Data</th>
+          <th>Messaggio</th>
+          <th>Errore</th>
+          <th style="width: 250px;">Messaggio d'Errore</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="log in logs track by $index">
+          <td><em style="font-weight:100;color:#000">{{$index}})</em></td>
+          <td><em style="font-weight:200;color:black">{{log.timestamp}}</em></td>
+          <td ng-if="log.start"><span style="background:black;color:yellow;font-weight:600;text-transform:uppercase;border-radius:5px;padding:3px"> {{log.message}} </span></td>
+          <td ng-if="!log.start" style="color:black;font-weight:400">{{log.message}}</td>
+          <td align="center" ng-if="log.error==true" style="color:red;font-weight:600;font-size:15px;background:#f8f8f8">&#x2717;</td>
+          <td ng-if="log.error==false" style="color:green">200</td>
+          <td ng-if="log.errorMsg" style="font-weight:bold"><u style="color:#eee"><span style="color:red">{{log.errorMsg}}</span></u></td>
+          <td ng-if="!log.errorMsg" style="color:green">OK</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+angular.module("starter.config", []).constant("CONFIG", {"appVersion": "2.7.0","base_url": "http://raspberrypi.local:8080","endpoint": "/api","photos": "/photos","photo": "/photo","takePhoto": "/takePhoto","deleteAll": "/deleteAll"});
